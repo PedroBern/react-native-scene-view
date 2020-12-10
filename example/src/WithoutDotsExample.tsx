@@ -6,9 +6,9 @@ import SceneA from './shared/SceneA'
 import SceneB from './shared/SceneB'
 import SceneC from './shared/SceneC'
 
-const DefaultExample: ExampleComponentType = () => {
+const WithoutDotsExample: ExampleComponentType = () => {
   return (
-    <SceneViewContainer dots={3}>
+    <SceneViewContainer>
       <SceneViewContainer.Scene>
         <SceneA />
       </SceneViewContainer.Scene>
@@ -22,6 +22,6 @@ const DefaultExample: ExampleComponentType = () => {
   )
 }
 
-DefaultExample.title = 'Default Example'
+WithoutDotsExample.title = 'Without Dots Example'
 
-export default DefaultExample
+export default WithoutDotsExample

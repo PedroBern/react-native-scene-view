@@ -13,9 +13,15 @@ import {
 } from 'react-native'
 
 import DefaultExample from './DefaultExample'
+import SwippableExample from './SwippableExample'
+import WithoutDotsExample from './WithoutDotsExample'
 import { ExampleComponentType } from './types'
 
-const EXAMPLE_COMPONENTS: ExampleComponentType[] = [DefaultExample]
+const EXAMPLE_COMPONENTS: ExampleComponentType[] = [
+  DefaultExample,
+  SwippableExample,
+  WithoutDotsExample,
+]
 
 const ExampleList: React.FC<object> = () => {
   const [index, setIndex] = React.useState(-1)
