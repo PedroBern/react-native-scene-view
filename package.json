@@ -1,7 +1,7 @@
 {
   "name": "react-native-scene-view",
   "version": "0.0.0",
-  "description": "",
+  "description": "Scene View component for React Native",
   "main": "lib/commonjs/index.js",
   "react-native": "lib/module/index.js",
   "module": "lib/module/index.js",
