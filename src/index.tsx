@@ -1,3 +1,6 @@
-import { View } from 'react-native'
+import SceneViewContainer from './SceneViewContainer'
+import { useSceneViewContext } from './SceneViewContext'
 
-export default View
+export default SceneViewContainer
+
+export { useSceneViewContext, SceneViewContainer }
