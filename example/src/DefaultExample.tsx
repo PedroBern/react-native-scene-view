@@ -1,4 +1,4 @@
-import MyComponent from 'MY_PACKAGE_NAME_HERE'
+import MyComponent from 'react-native-scene-view'
 import React from 'react'
 import { ExampleComponentType } from 'src/types'
 

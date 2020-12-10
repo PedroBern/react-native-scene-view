@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "MY_PACKAGE_NAME_HERE": ["../src/index"]
+      "react-native-scene-view": ["../src/index"]
     },
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
@@ -11,11 +11,7 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strict": true,
+    "strict": true
   },
-  "exclude": [
-    "node_modules",
-    "**/*.test.tsx",
-    "**/*.spec.ts",
-  ],
+  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"]
 }

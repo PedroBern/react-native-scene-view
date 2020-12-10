@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MY_PACKAGE_NAME_HERE-demos",
-    "slug": "MY_PACKAGE_NAME_HERE-demos",
+    "name": "react-native-scene-view-demos",
+    "slug": "react-native-scene-view-demos",
     "description": "",
     "privacy": "public",
     "version": "1.0.0",
@@ -11,10 +11,6 @@
       "icon": "assets/icon.png",
       "hideExponentText": false
     },
-    "platforms": [
-      "android",
-      "ios",
-      "web"
-    ]
+    "platforms": ["android", "ios", "web"]
   }
 }

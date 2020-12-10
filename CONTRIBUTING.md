@@ -5,8 +5,8 @@
 Fork the repository, clone the fork to your local machine and install dependencies:
 
 ```sh
-git clone https://github.com/<your_github_username>/MY_PACKAGE_NAME_HERE.git
-cd MY_PACKAGE_NAME_HERE
+git clone https://github.com/<your_github_username>/react-native-scene-view.git
+cd react-native-scene-view
 yarn bootstrap
 ```
 

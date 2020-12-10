@@ -7,7 +7,7 @@ module.exports = function (api) {
         'module-resolver',
         {
           alias: {
-            MY_PACKAGE_NAME_HERE: '../src/index',
+            react-native-scene-view: '../src/index',
           },
         },
       ],
