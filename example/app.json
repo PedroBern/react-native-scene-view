@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "MY_PACKAGE_NAME_HERE-demos",
+    "slug": "MY_PACKAGE_NAME_HERE-demos",
+    "description": "",
+    "privacy": "public",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "loading": {
+      "icon": "assets/icon.png",
+      "hideExponentText": false
+    },
+    "platforms": [
+      "android",
+      "ios",
+      "web"
+    ]
+  }
+}
