@@ -31,14 +31,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PedroBern/react-native-collapsible-tab-view.git"
+    "url": "git+https://github.com/PedroBern/react-native-scene-view.git"
   },
   "author": "Pedro Bern <pedrobermoreira@gmail.com> (https://github.com/pedrobern/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pedrobern/react-native-collapsible-tab-view/issues"
+    "url": "https://github.com/pedrobern/react-native-scene-view/issues"
   },
-  "homepage": "https://github.com/PedroBern/react-native-collapsible-tab-view#readme",
+  "homepage": "https://github.com/PedroBern/react-native-scene-view#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^9.1.1",
     "@react-native-community/bob": "^0.16.2",
