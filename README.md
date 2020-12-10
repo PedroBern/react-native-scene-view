@@ -11,8 +11,6 @@
 
 ## Expo app
 
-DESCRIPTION
-
 - [View it with Expo](https://expo.io/@pedrobern/react-native-scene-view-demos).
 - Checkout the [examples](https://github.com/PedroBern/react-native-scene-view/tree/main/example) for the source code of the Expo app.
 

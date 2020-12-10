@@ -2,7 +2,7 @@
   "expo": {
     "name": "react-native-scene-view-demos",
     "slug": "react-native-scene-view-demos",
-    "description": "",
+    "description": "Demonstrates the various capabilities of react-native-scene-view: https://github.com/pedrobern/react-native-scene-view",
     "privacy": "public",
     "version": "1.0.0",
     "orientation": "portrait",
