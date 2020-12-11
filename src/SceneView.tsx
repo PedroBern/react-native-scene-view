@@ -20,6 +20,9 @@ type Props = {
   paginationLength?: number
   pagination?: Pagination
   containerProps?: ViewProps
+  activeColor?: string
+  inactiveColor?: string
+  paginationContainerProps?: ViewProps
 } & ScrollViewProps
 
 const SceneView: React.FC<Props> & {
@@ -32,6 +35,9 @@ const SceneView: React.FC<Props> & {
   paginationLength = 0,
   pagination,
   containerProps,
+  activeColor = 'rgba(0, 0, 0, 1)',
+  inactiveColor = 'rgba(0, 0, 0, 0.3)',
+  paginationContainerProps,
   ...rest
 }) => {
   const scrollRef = React.useRef<ScrollView>()
@@ -59,6 +65,44 @@ const SceneView: React.FC<Props> & {
     })
   }, [width])
 
+  const renderPagination = React.useCallback(() => {
+    if (paginationLength === 0) return null
+    switch (pagination) {
+      case 'dots-bottom':
+        return (
+          <DotsComponent
+            length={paginationLength}
+            {...paginationContainerProps}
+          />
+        )
+      case 'dots-top':
+        return (
+          <DotsComponent
+            {...paginationContainerProps}
+            length={paginationLength}
+            style={[styles.dotsTop, paginationContainerProps?.style]}
+          />
+        )
+      case 'tabs-top':
+        return (
+          <TabsComponent
+            length={paginationLength}
+            {...paginationContainerProps}
+          />
+        )
+      case 'tabs-bottom':
+        return (
+          <TabsComponent
+            {...paginationContainerProps}
+            length={paginationLength}
+            style={[styles.tabsBottom, paginationContainerProps?.style]}
+          />
+        )
+      default:
+        return null
+    }
+  }, [paginationLength, pagination, paginationContainerProps])
+
   return (
     <SceneViewContextProvider
       value={{
@@ -67,6 +111,8 @@ const SceneView: React.FC<Props> & {
         width,
         animatedValue: scrollX,
         paginationLength,
+        activeColor,
+        inactiveColor,
       }}
     >
       <View
@@ -92,18 +138,7 @@ const SceneView: React.FC<Props> & {
         >
           {children}
         </Animated.ScrollView>
-        {paginationLength > 0 && pagination === 'dots-bottom' && (
-          <DotsComponent length={paginationLength} />
-        )}
-        {paginationLength > 0 && pagination === 'dots-top' && (
-          <DotsComponent length={paginationLength} style={styles.dotsTop} />
-        )}
-        {paginationLength > 0 && pagination === 'tabs-top' && (
-          <TabsComponent length={paginationLength} />
-        )}
-        {paginationLength > 0 && pagination === 'tabs-bottom' && (
-          <TabsComponent length={paginationLength} style={styles.tabsBottom} />
-        )}
+        {renderPagination()}
       </View>
     </SceneViewContextProvider>
   )
