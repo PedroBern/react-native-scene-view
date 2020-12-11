@@ -1,14 +1,15 @@
 import React from 'react'
-import { Animated, StyleSheet, View, ViewProps } from 'react-native'
+import { Animated, StyleSheet, View } from 'react-native'
+import { PaginationProps } from 'src/types'
 
 import { useSceneViewContext } from '../SceneViewContext'
 
-type Props = ViewProps & {
-  spacing?: number
-  length: number
-}
-
-const Dots: React.FC<Props> = ({ style, length, spacing = 8, ...rest }) => {
+const Dots: React.FC<PaginationProps> = ({
+  style,
+  length,
+  spacing = 8,
+  ...rest
+}) => {
   const {
     width,
     animatedValue: scrollX,
