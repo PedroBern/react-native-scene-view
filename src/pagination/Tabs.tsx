@@ -4,72 +4,72 @@ import { Animated, StyleSheet, View, ViewProps } from 'react-native'
 import { useSceneViewContext } from '../SceneViewContext'
 
 type Props = ViewProps & {
-  spacing?: number
   activeColor?: string
   inactiveColor?: string
   length: number
+  spacing?: number
 }
 
 const Dots: React.FC<Props> = ({
   style,
   length,
-  spacing = 8,
+  spacing = 4,
   activeColor = 'rgba(0, 0, 0, 1)',
   inactiveColor = 'rgba(0, 0, 0, 0.3)',
   ...rest
 }) => {
   const { width, animatedValue: scrollX } = useSceneViewContext()
 
-  const [activeDotLeft, setActiveDotLeft] = React.useState(-1)
+  const [activeTabLeft, setActiveTabLeft] = React.useState(-1)
 
-  const [activeDotTranslateX, setActiveDotTranslateX] = React.useState(
+  const [activeTabTranslateX, setActiveTabTranslateX] = React.useState(
     Animated.diffClamp(scrollX, 0, width * length).interpolate({
       inputRange: [0, width],
-      outputRange: [0, spacing * 2],
+      outputRange: [0, (width - spacing * 4) / length],
     })
   )
 
   React.useEffect(() => {
-    setActiveDotTranslateX(
+    setActiveTabTranslateX(
       Animated.diffClamp(scrollX, 0, width * length).interpolate({
         inputRange: [0, width],
-        outputRange: [0, spacing * 2],
+        outputRange: [0, (width - spacing * 4) / length],
       })
     )
-  }, [width, spacing, length, scrollX])
+  }, [width, length, scrollX, spacing])
 
-  const getDotStyle = React.useCallback(
+  const getTabStyle = React.useCallback(
     () => ({
       backgroundColor: inactiveColor,
-      width: spacing,
+      width: (width - spacing * 4) / length - spacing,
       height: spacing,
       borderRadius: spacing / 2,
       margin: spacing / 2,
     }),
-    [inactiveColor, spacing]
+    [inactiveColor, width, length, spacing]
   )
 
-  const renderDots = React.useCallback(
+  const renderTabs = React.useCallback(
     () =>
       [...Array(length - 1)].map((_e, i) => (
-        <Animated.View key={i} style={getDotStyle()} />
+        <Animated.View key={i} style={getTabStyle()} />
       )),
-    [getDotStyle, length]
+    [getTabStyle, length]
   )
 
   return (
     <View style={[styles.root, style]} {...rest}>
-      {activeDotLeft > -1 && (
+      {activeTabLeft > -1 && (
         <Animated.View
           style={[
-            getDotStyle(),
-            styles.activeDot,
+            getTabStyle(),
+            styles.activeTab,
             {
               backgroundColor: activeColor,
-              left: activeDotLeft,
+              left: activeTabLeft,
               transform: [
                 {
-                  translateX: activeDotTranslateX,
+                  translateX: activeTabTranslateX,
                 },
               ],
             },
@@ -77,22 +77,22 @@ const Dots: React.FC<Props> = ({
         />
       )}
 
-      <View style={styles.dots}>
-        {/* first dot */}
+      <View style={styles.tabs}>
+        {/* first tab */}
         <Animated.View
           onLayout={(event) => {
-            setActiveDotLeft(event.nativeEvent.layout.x - spacing / 2)
+            setActiveTabLeft(event.nativeEvent.layout.x - spacing / 2)
           }}
           style={[
-            getDotStyle(),
+            getTabStyle(),
             {
               backgroundColor:
-                activeDotLeft === -1 ? activeColor : inactiveColor,
+                activeTabLeft === -1 ? activeColor : inactiveColor,
             },
           ]}
         />
-        {/* other dots */}
-        {renderDots()}
+        {/* other tabs */}
+        {renderTabs()}
       </View>
     </View>
   )
@@ -102,16 +102,17 @@ const styles = StyleSheet.create({
   root: {
     zIndex: 1000,
     position: 'absolute',
-    bottom: 24,
+    top: 0,
+    marginVertical: 4,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
   },
-  activeDot: {
+  activeTab: {
     position: 'absolute',
     zIndex: 100,
   },
-  dots: {
+  tabs: {
     flexDirection: 'row',
     flex: 1,
     alignItems: 'center',
