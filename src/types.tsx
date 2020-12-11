@@ -1,4 +1,4 @@
-import { Animated } from 'react-native'
+import { Animated, ViewProps } from 'react-native'
 
 export type Pagination = 'dots-bottom' | 'dots-top' | 'tabs-top' | 'tabs-bottom'
 
@@ -11,3 +11,8 @@ export type SceneViewContext = {
   activeColor: string
   inactiveColor: string
 }
+
+export type PaginationProps = {
+  spacing?: number
+  length: number
+} & ViewProps

@@ -13,7 +13,7 @@ import Scene from './Scene'
 import { SceneViewContextProvider } from './SceneViewContext'
 import DotsComponent from './pagination/Dots'
 import TabsComponent from './pagination/Tabs'
-import { Pagination } from './types'
+import { Pagination, PaginationProps } from './types'
 
 type Props = {
   width?: number
@@ -22,7 +22,7 @@ type Props = {
   containerProps?: ViewProps
   activeColor?: string
   inactiveColor?: string
-  paginationContainerProps?: ViewProps
+  paginationProps?: Omit<PaginationProps, 'length'>
 } & ScrollViewProps
 
 const SceneView: React.FC<Props> & {
@@ -37,7 +37,7 @@ const SceneView: React.FC<Props> & {
   containerProps,
   activeColor = 'rgba(0, 0, 0, 1)',
   inactiveColor = 'rgba(0, 0, 0, 0.3)',
-  paginationContainerProps,
+  paginationProps,
   ...rest
 }) => {
   const scrollRef = React.useRef<ScrollView>()
@@ -69,39 +69,29 @@ const SceneView: React.FC<Props> & {
     if (paginationLength === 0) return null
     switch (pagination) {
       case 'dots-bottom':
-        return (
-          <DotsComponent
-            length={paginationLength}
-            {...paginationContainerProps}
-          />
-        )
+        return <DotsComponent length={paginationLength} {...paginationProps} />
       case 'dots-top':
         return (
           <DotsComponent
-            {...paginationContainerProps}
             length={paginationLength}
-            style={[styles.dotsTop, paginationContainerProps?.style]}
+            {...paginationProps}
+            style={[styles.dotsTop, paginationProps?.style]}
           />
         )
       case 'tabs-top':
-        return (
-          <TabsComponent
-            length={paginationLength}
-            {...paginationContainerProps}
-          />
-        )
+        return <TabsComponent length={paginationLength} {...paginationProps} />
       case 'tabs-bottom':
         return (
           <TabsComponent
-            {...paginationContainerProps}
             length={paginationLength}
-            style={[styles.tabsBottom, paginationContainerProps?.style]}
+            {...paginationProps}
+            style={[styles.tabsBottom, paginationProps?.style]}
           />
         )
       default:
         return null
     }
-  }, [paginationLength, pagination, paginationContainerProps])
+  }, [paginationLength, pagination, paginationProps])
 
   return (
     <SceneViewContextProvider
