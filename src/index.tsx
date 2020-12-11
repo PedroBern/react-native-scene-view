@@ -1,6 +1,6 @@
-import SceneViewContainer from './SceneViewContainer'
+import SceneView from './SceneView'
 import { useSceneViewContext } from './SceneViewContext'
 
-export default SceneViewContainer
+export default SceneView
 
-export { useSceneViewContext, SceneViewContainer }
+export { useSceneViewContext, SceneView }
