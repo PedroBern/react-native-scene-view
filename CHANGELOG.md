@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/PedroBern/react-native-scene-view/compare/v1.0.0...v1.1.0) (2020-12-11)
+
+
+### Bug Fixes
+
+* prevent wrong width ([9dee906](https://github.com/PedroBern/react-native-scene-view/commit/9dee906b8327621991ab56ca5f90aef74555dcb6))
+
+
+### Features
+
+* add colors props ([61f70ee](https://github.com/PedroBern/react-native-scene-view/commit/61f70ee733840349a3c5512293fe0e1a3cd55d5a))
+
 # [1.0.0](https://github.com/PedroBern/react-native-scene-view/compare/v0.1.0...v1.0.0) (2020-12-11)
 
 
