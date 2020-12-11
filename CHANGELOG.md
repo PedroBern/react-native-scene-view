@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/PedroBern/react-native-scene-view/compare/v1.1.0...v1.1.1) (2020-12-11)
+
+
+### Bug Fixes
+
+* pagination typing ([aad845c](https://github.com/PedroBern/react-native-scene-view/commit/aad845c3e524ab760e7a240fe81b1a77ec2bcaec))
+
 # [1.1.0](https://github.com/PedroBern/react-native-scene-view/compare/v1.0.0...v1.1.0) (2020-12-11)
 
 
