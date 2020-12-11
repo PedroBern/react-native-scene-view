@@ -12,15 +12,19 @@ import {
   View,
 } from 'react-native'
 
-import DefaultExample from './DefaultExample'
-import SwippableExample from './SwippableExample'
-import WithoutDotsExample from './WithoutDotsExample'
+import DotsExample from './DotsExample'
+import SwippableDotsExample from './SwippableDotsExample'
+import SwippableTabsExample from './SwippableTabsExample'
+import TabsExample from './TabsExample'
+import WithoutPaginationExample from './WithoutPaginationExample'
 import { ExampleComponentType } from './types'
 
 const EXAMPLE_COMPONENTS: ExampleComponentType[] = [
-  DefaultExample,
-  SwippableExample,
-  WithoutDotsExample,
+  DotsExample,
+  TabsExample,
+  SwippableDotsExample,
+  SwippableTabsExample,
+  WithoutPaginationExample,
 ]
 
 const ExampleList: React.FC<object> = () => {
