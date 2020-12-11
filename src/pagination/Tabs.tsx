@@ -58,7 +58,7 @@ const Dots: React.FC<Props> = ({
   )
 
   return (
-    <View style={[styles.root, style]} {...rest}>
+    <View style={[styles.root, { width }, style]} {...rest}>
       {activeTabLeft > -1 && (
         <Animated.View
           style={[
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     zIndex: 1000,
     position: 'absolute',
     top: 0,
-    marginVertical: 4,
+    paddingVertical: 4,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
