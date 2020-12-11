@@ -8,4 +8,6 @@ export type SceneViewContext = {
   width: number
   paginationLength: number
   animatedValue: Animated.Value
+  activeColor: string
+  inactiveColor: string
 }

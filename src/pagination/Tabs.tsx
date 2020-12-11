@@ -4,21 +4,17 @@ import { Animated, StyleSheet, View, ViewProps } from 'react-native'
 import { useSceneViewContext } from '../SceneViewContext'
 
 type Props = ViewProps & {
-  activeColor?: string
-  inactiveColor?: string
   length: number
   spacing?: number
 }
 
-const Dots: React.FC<Props> = ({
-  style,
-  length,
-  spacing = 4,
-  activeColor = 'rgba(0, 0, 0, 1)',
-  inactiveColor = 'rgba(0, 0, 0, 0.3)',
-  ...rest
-}) => {
-  const { width, animatedValue: scrollX } = useSceneViewContext()
+const Dots: React.FC<Props> = ({ style, length, spacing = 4, ...rest }) => {
+  const {
+    width,
+    animatedValue: scrollX,
+    activeColor,
+    inactiveColor,
+  } = useSceneViewContext()
 
   const [activeTabLeft, setActiveTabLeft] = React.useState(-1)
 
@@ -58,7 +54,7 @@ const Dots: React.FC<Props> = ({
   )
 
   return (
-    <View style={[styles.root, style]} {...rest}>
+    <View style={[styles.root, { width }, style]} {...rest}>
       {activeTabLeft > -1 && (
         <Animated.View
           style={[
@@ -103,7 +99,7 @@ const styles = StyleSheet.create({
     zIndex: 1000,
     position: 'absolute',
     top: 0,
-    marginVertical: 4,
+    paddingVertical: 4,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

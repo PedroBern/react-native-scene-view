@@ -5,20 +5,16 @@ import { useSceneViewContext } from '../SceneViewContext'
 
 type Props = ViewProps & {
   spacing?: number
-  activeColor?: string
-  inactiveColor?: string
   length: number
 }
 
-const Dots: React.FC<Props> = ({
-  style,
-  length,
-  spacing = 8,
-  activeColor = 'rgba(0, 0, 0, 1)',
-  inactiveColor = 'rgba(0, 0, 0, 0.3)',
-  ...rest
-}) => {
-  const { width, animatedValue: scrollX } = useSceneViewContext()
+const Dots: React.FC<Props> = ({ style, length, spacing = 8, ...rest }) => {
+  const {
+    width,
+    animatedValue: scrollX,
+    activeColor,
+    inactiveColor,
+  } = useSceneViewContext()
 
   const [activeDotLeft, setActiveDotLeft] = React.useState(-1)
 
